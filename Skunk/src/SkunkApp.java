@@ -8,26 +8,32 @@ public class SkunkApp {
 		System.out.println("You have");
 		Scanner scan = new Scanner(System.in);
 		String option = "";
-		boolean SystemRun = true;
+		boolean systemRun = true;
 		int playerNumber = numberOfPlayers(scan);
 		System.out.println(playerNumber);
-		int[][] playerScore = new int[playerNumber][1];
-
+		int[] playerScore = new int[playerNumber];
+		int diceResult1 = 0;
+		int diceResult2=0;
+		PairOfDice pairOfDice=new PairOfDice();
 		for (int n = 0; n < playerNumber; n++) {
-
-			while (SystemRun) {
-				System.out.println("You are the No." + (n + 1) + " player. Here are you options");
+			System.out.println("You are the No." + (n + 1) + " player. Here are you options");
+			systemRun=true;
+			while (systemRun) {
 				System.out.println("1. roll the dice.");
 				System.out.println("2. end this term.");
 				option = scan.next();
-				if (option == "1") {
-					
-				}
-				if (option == "2") {
-
-				} else {
-					System.out.println("Invalid input, please enter againg");
-				}
+//				if (option.equals("1")) {
+//					
+//					System.out.println(pairOfDice.getTotal());
+//
+//				}
+//				if (option.equals("2")) {
+//					systemRun=false;
+//					System.out.println("Next player");
+//
+//				} else {
+//					System.out.println("Invalid input, please enter againg");
+//				}
 			}
 		}
 
@@ -51,14 +57,6 @@ public class SkunkApp {
 			players = 2;
 			return players;
 		}
-
-	}
-
-	public int roll() {
-		int diceResult = 0;
-		diceResult = (int) (6.0 * Math.random()) + 1;
-
-		return diceResult;
 
 	}
 
