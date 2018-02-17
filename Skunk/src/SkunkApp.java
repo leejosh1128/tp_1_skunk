@@ -10,19 +10,20 @@ public class SkunkApp
 		// Start the game, ask how many players to play this game
 		// Ask player input a number
 		System.out.println("-----------Welcome to the Game of Skunk-----------");
-		System.out.println("How many players do you have?");
-		System.out.println("You have");
+		System.out.println("How many players do you have? \nYou have");
+		
 		Scanner scan = new Scanner(System.in);
 		String option = "";
 		boolean systemRun = true;
 		int playerNumber = numberOfPlayers(scan);
-		// System.out.println(playerNumber);
+		
 		int[] playerScore = new int[playerNumber];
 
 		PairOfDice pairOfDice = new PairOfDice();
 		for (int n = 0; n < playerNumber; n++)
 		{
-			System.out.println("You are the No." + (n + 1) + " player. Here are your options");
+			System.out.println("\n-----------------------------------------------"
+					+ "\nYou are the No." + (n + 1) + " player. Here are your options");
 			systemRun = true;
 			while (systemRun)
 			{
@@ -41,7 +42,17 @@ public class SkunkApp
 					System.out.println("Your dice-1 result is " + diceResult1 +
 							" and your dice-2 result is " + diceResult2);
 					System.out.println("Your total number is " + pairOfDice.getTotal());
-
+					if (pairOfDice.getTotal() != 0)
+					{
+						systemRun = true;
+						System.out.println("-----------------------------------------------"
+								+ "\nDo you want to roll the dice again or end this term?");
+					}
+					else
+					{
+						systemRun = false;
+						System.out.println("Sorry, your term is over!");
+					}	
 				}
 				
 				// If player chooses to end this term, go to the next player
@@ -50,10 +61,10 @@ public class SkunkApp
 					systemRun = false;
 					System.out.println("Next player");
 				}
-				else
-				{
-					System.out.println("Invalid input, please enter again");
-				}
+//				else
+//				{
+//					System.out.println("Invalid input, please enter again");
+//				}
 			}
 		}
 
@@ -69,7 +80,8 @@ public class SkunkApp
 				players = scan.nextInt();
 				if (players > 1)
 				{
-					System.out.println("Great! You have " + players + " Players. Let's Go!");
+					System.out.println("Great! You have " + players + " Players. Let's Go!"
+							+ "");
 					return players;
 				}
 				else
