@@ -10,20 +10,20 @@ public class SkunkApp
 		// Start the game, ask how many players to play this game
 		// Ask player input a number
 		System.out.println("-----------Welcome to the Game of Skunk-----------");
-		System.out.println("How many players do you have? \nYou have");
-		
+		System.out.println("How many players do you have?");
+		System.out.println("You have");
 		Scanner scan = new Scanner(System.in);
 		String option = "";
 		boolean systemRun = true;
+		boolean termRun = true;
 		int playerNumber = numberOfPlayers(scan);
-		
+		// System.out.println(playerNumber);
 		int[] playerScore = new int[playerNumber];
-
+		int termScore = 0;
 		PairOfDice pairOfDice = new PairOfDice();
 		for (int n = 0; n < playerNumber; n++)
 		{
-			System.out.println("\n-----------------------------------------------"
-					+ "\nYou are the No." + (n + 1) + " player. Here are your options");
+			System.out.println("You are the No." + (n + 1) + " player. Here are your options");
 			systemRun = true;
 			while (systemRun)
 			{
@@ -31,40 +31,73 @@ public class SkunkApp
 				System.out.println("1. Roll the dice.");
 				System.out.println("2. End this term.");
 				option = scan.next();
-				
-				// If player chooses to roll the dice, it shows the result of 2 dices and 
+
+				// If player chooses to roll the dice, it shows the result of 2 dices and
 				// the total number
 				if (option.equals("1"))
 				{
 					pairOfDice.roll();
 					diceResult1 = pairOfDice.getDice1();
 					diceResult2 = pairOfDice.getDice2();
-					System.out.println("Your dice-1 result is " + diceResult1 +
-							" and your dice-2 result is " + diceResult2);
-					System.out.println("Your total number is " + pairOfDice.getTotal());
-					if (pairOfDice.getTotal() != 0)
+					System.out.println(
+							"Your dice-1 result is " + diceResult1 + " and your dice-2 result is " + diceResult2);
+					while (termRun)
 					{
-						systemRun = true;
-						System.out.println("-----------------------------------------------"
-								+ "\nDo you want to roll the dice again or end this term?");
+						if (diceResult1 == 1 || diceResult2 == 1)
+						{
+							termRun = false;
+							termScore = 0;
+							System.out.println("Player " + (n + 1) + " end your term. Next Player.");
+						}
+						if (diceResult1 != 1 || diceResult2 != 1)
+						{
+							termScore = pairOfDice.getTotal() + termScore;
+							System.out.println("1. Roll the dice.");
+							System.out.println("2. End this term.");
+							option = scan.next();
+							if (option.equals("1"))
+							{
+								pairOfDice.roll();
+								diceResult1 = pairOfDice.getDice1();
+								diceResult2 = pairOfDice.getDice2();
+								System.out.println("Your dice-1 result is " + diceResult1
+										+ " and your dice-2 result is " + diceResult2);
+								if (diceResult1 != 1 || diceResult2 != 1)
+								{
+									termScore = pairOfDice.getTotal() + termScore;
+									System.out.println("This term your total score is " + termScore);
+								}
+								else
+								{
+									termScore = 0;
+									termRun = false;
+									System.out.println("Player " + (n + 1) + " end your term. Your total score is:"
+											+ playerScore[n] + "Next Player, Player " + (n + 2));
+								}
+
+							}
+							if (option.equals("2"))
+							{
+								playerScore[n] = playerScore[n] + termScore;
+								termRun = false;
+								System.out.println("Player " + (n + 1) + " end your term. Your total score is:"
+										+ playerScore[n] + "Next Player, Player" + (n + 2));
+							}
+						}
+
 					}
-					else
-					{
-						systemRun = false;
-						System.out.println("Sorry, your term is over!");
-					}	
+
+					System.out.println("Your total number is " + pairOfDice.getTotal());
+
 				}
-				
+
 				// If player chooses to end this term, go to the next player
 				if (option.equals("2"))
 				{
 					systemRun = false;
 					System.out.println("Next player");
 				}
-//				else
-//				{
-//					System.out.println("Invalid input, please enter again");
-//				}
+				
 			}
 		}
 
@@ -80,15 +113,14 @@ public class SkunkApp
 				players = scan.nextInt();
 				if (players > 1)
 				{
-					System.out.println("Great! You have " + players + " Players. Let's Go!"
-							+ "");
+					System.out.println("Great! You have " + players + " Players. Let's Go!");
 					return players;
 				}
 				else
 				{
 					System.out.println("Please enter the right player numbers.");
 				}
-				;
+
 			}
 		}
 		catch (Exception e)
