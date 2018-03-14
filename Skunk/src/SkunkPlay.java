@@ -22,7 +22,6 @@ public class SkunkPlay {
 		boolean gameRun = true;
 		while (gameRun) {
 			for (int n = 0; n < allPlayerNumber; n++) {
-
 				System.out.println(playerName[n] + " please make your choice:");
 
 				int[] playerCurrentTerm = playerTerm.playerTermRun(n + 1);
