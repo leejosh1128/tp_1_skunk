@@ -22,6 +22,29 @@ public class PairOfDice {
 		return diceResult2;
 	}
 
+	public int[] rollOrDie(int playerNumber) {
+		this.roll();
+		int[] rollOrDie = new int[2];
+		System.out.println("Your dice-1 result is " + diceResult1 + " and your dice-2 result is " + diceResult2);
+		if (diceResult1 == 1 || diceResult2 == 1) {
+			rollOrDie[0] = 0;
+			if ((diceResult1 == 1 && diceResult2 == 2) || (diceResult1 == 2 && diceResult2 == 1)) {
+				rollOrDie[1] = -2;
+			} else {
+				rollOrDie[1] = -1;
+			}
+
+		}
+		if (diceResult1 == 1 && diceResult2 == 1) {
+			rollOrDie[0] = 0;
+			rollOrDie[1] = -4;
+		} else {
+			rollOrDie[0] = this.getTotal();
+		}
+		return rollOrDie;
+
+	}
+
 	public int getTotal() {
 		if (diceResult1 == 1 || diceResult2 == 1) {
 			return 0;
