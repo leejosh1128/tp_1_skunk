@@ -4,13 +4,13 @@ import java.util.Scanner;
 
 import org.junit.Test;
 
-public class SkunkAppTest {
+public class SkunkAppTest
+{
 
 	@Test
-	public void numberOfPlayers() {
+	public void numberOfPlayers()
+	{
 
-		
-		
 	}
 
 }

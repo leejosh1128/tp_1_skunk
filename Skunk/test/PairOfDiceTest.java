@@ -6,7 +6,6 @@ public class PairOfDiceTest
 {
 	PairOfDice pairOfDice = new PairOfDice();
 
-
 	@Test
 	public void testRoll()
 	{
@@ -14,7 +13,7 @@ public class PairOfDiceTest
 		int diceResult1 = pairOfDice.getDice1();
 		assertFalse("The diceResult1 cannot over 6", diceResult1 > 6);
 		assertFalse("The diceResult1 cannot less than 1", diceResult1 < 1);
-		assertFalse("The diceResult1 cannot be a negtive number", diceResult1 < 0);		
+		assertFalse("The diceResult1 cannot be a negtive number", diceResult1 < 0);
 	}
 
 	@Test
@@ -22,7 +21,8 @@ public class PairOfDiceTest
 	{
 		pairOfDice.roll();
 		int diceResult1 = pairOfDice.getDice1();
-		Integer[] arr = {1, 2, 3, 4, 5, 6};	
+		Integer[] arr =
+		{ 1, 2, 3, 4, 5, 6 };
 		assertTrue("The diceResult1 should be one of number in arr", Arrays.asList(arr).contains(diceResult1));
 	}
 
@@ -31,7 +31,8 @@ public class PairOfDiceTest
 	{
 		pairOfDice.roll();
 		int diceResult2 = pairOfDice.getDice2();
-		Integer[] arr = {1, 2, 3, 4, 5, 6};
+		Integer[] arr =
+		{ 1, 2, 3, 4, 5, 6 };
 		assertTrue("The diceResult2 should be one of number in arr", Arrays.asList(arr).contains(diceResult2));
 	}
 
@@ -47,8 +48,7 @@ public class PairOfDiceTest
 			assertEquals("The total number should be 0", 0, total);
 		}
 		else
-			assertEquals("The total number should equals diceResult1 + diceResult2", 
-					diceResult1 + diceResult2, total);
+			assertEquals("The total number should equals diceResult1 + diceResult2", diceResult1 + diceResult2, total);
 	}
 
 }
