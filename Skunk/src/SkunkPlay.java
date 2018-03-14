@@ -36,6 +36,7 @@ public class SkunkPlay {
 					System.out.println("Congratulations!" + playerName[n] + " You win the game!");
 					System.out.println("You get " + kittyBank + " chips.");
 					gameRun = false;
+					
 				}
 
 			}
