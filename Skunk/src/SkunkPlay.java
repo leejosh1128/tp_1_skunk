@@ -21,7 +21,7 @@ public class SkunkPlay {
 		while (gameRun) {
 			for (int n = 0; n < allPlayerNumber; n++) {
 
-				if (playerChip[n]> 47) {
+				if (playerChip[n] > 0) {
 
 					System.out.println("-----------------------------");
 					System.out.println(playerName[n] + " please make your choice:");
@@ -33,6 +33,11 @@ public class SkunkPlay {
 					System.out.println(playerName[n] + ", You have " + playerChip[n] + " chips.");
 					kittyBank = kittyBank - playerCurrentTerm[1];
 					System.out.println("Now in the bank there is " + kittyBank + " chips.");
+					if (playerChip[n] <= 0) {
+						System.out.println("Sorry, player " + playerName[n] + " you lose all your chips.");
+						System.out.println("You lose");
+						System.out.println("--------------------");
+					}
 					if (playerScore[n] >= winnerScore && playerChip[n] > 0) {
 						System.out.println("Congratulations!" + playerName[n] + " You win the game!");
 						System.out.println("You get " + kittyBank + " chips in the kittybank.");
@@ -41,16 +46,10 @@ public class SkunkPlay {
 
 					}
 				}
-				 if(playerChip[n]<=47){
-				 System.out.println("YOu lose");
-				 }
-				 
+
 			}
 
 		}
 
 	}
 }
-
-
-

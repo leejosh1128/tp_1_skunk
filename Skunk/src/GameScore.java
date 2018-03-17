@@ -8,6 +8,7 @@ public class GameScore {
 		return playerScore;
 	}
 
+
 	public int getPlayerScore(int playerNumber) {
 
 		return playerScore()[playerNumber - 1];

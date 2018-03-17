@@ -13,10 +13,15 @@ public class PlayerTerm {
 	int option = 0;
 
 	public void printSkunkRule() {
-		String rule = "";
-		rule = "fsadfsa";
-
-		// System.out.printf(l, format, args)
+		String rule1 = "";
+		String rule2 = "";
+		String rule3 = "";
+		rule1 = "A skunk in any series voids the score for that series only and draws a penalty of 1 chip placed in the 'kitty' and loss of dice.";
+		rule2 = "A skunk and a deuce voids the score for that series only and draws a penalty of 2 chips placed in the 'kitty,' and loss of dice.";
+		rule3="TWO skunks void the ENTIRE accumulated score and draws a penalty of 4 chips placed in the 'kitty,' and loss of dice. Player must again start to score from scratch.";
+		System.out.println(rule1);
+		System.out.println(rule2);
+		System.out.println(rule3);
 	}
 
 	public void getOptions() {
