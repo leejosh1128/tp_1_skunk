@@ -25,13 +25,21 @@ public class SkunkPlay {
 
 				if (playerChip[n] > 0) {
 
-					System.out.println("-----------------------------");
+					System.out.println("\n------------------------------- New term ----------------------------------");
 					System.out.println(playerName[n] + " please make your choice:");
 
 					int[] playerCurrentTerm = playerTerm.playerTermRun(n + 1);
-					playerScore[n] = playerScore[n] + playerCurrentTerm[0];
-					System.out.println(playerName[n] + ", Your total score is " + playerScore[n]);
+					if (playerCurrentTerm[1] == -4) {
+						playerScore[n] = 0;
+
+					} else {
+						playerScore[n] = playerScore[n] + playerCurrentTerm[0];
+					}
+
 					playerChip[n] = playerChip[n] + playerCurrentTerm[1];
+
+					System.out.println(playerName[n] + ", Your total score is " + playerScore[n]);
+
 					System.out.println(playerName[n] + ", You have " + playerChip[n] + " chips.");
 					kittyBank = kittyBank - playerCurrentTerm[1];
 					System.out.println("Now in the bank there is " + kittyBank + " chips.");
@@ -99,7 +107,6 @@ public class SkunkPlay {
 
 					}
 				}
-				
 
 			}
 

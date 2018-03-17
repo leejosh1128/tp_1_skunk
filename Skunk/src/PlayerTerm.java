@@ -15,7 +15,7 @@ public class PlayerTerm {
 	public void printSkunkRule() {
 		System.out.println("Do you want to see the rules?");
 		System.out.println("1. see the rule");
-		System.out.println("2.Let's start the game");
+		System.out.println("2. Let's start the game");
 
 		try {
 			Scanner scan = new Scanner(System.in);
