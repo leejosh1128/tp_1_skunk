@@ -31,9 +31,14 @@ public class PlayerSelection {
 		String playerName[] = new String[playerNumber];
 		for (int n = 0; n < playerNumber; n++) {
 			System.out.println("The number " + (n + 1) + " player please enter your name:");
-			playerName[n] = scan.next();
-
+			Scanner scanner = new Scanner(System.in);
+			playerName[n] = scanner.nextLine();
+		
+			System.out.println("Your username is " + playerName[n]);
+			
+			
 		}
+	
 		return playerName;
 	}
 

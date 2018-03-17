@@ -18,6 +18,8 @@ public class SkunkPlay {
 		int kittyBank = 0;
 		// game ends until one player gets 100 or lose 50 chips
 		boolean gameRun = true;
+		playerTerm.printSkunkRule();
+
 		while (gameRun) {
 			for (int n = 0; n < allPlayerNumber; n++) {
 
@@ -38,14 +40,66 @@ public class SkunkPlay {
 						System.out.println("You lose");
 						System.out.println("--------------------");
 					}
+					int numWinner = 0;
 					if (playerScore[n] >= winnerScore && playerChip[n] > 0) {
-						System.out.println("Congratulations!" + playerName[n] + " You win the game!");
-						System.out.println("You get " + kittyBank + " chips in the kittybank.");
+						for (int lastRun = n + 1; lastRun < allPlayerNumber; lastRun++) {
+							if (playerChip[lastRun] > 0) {
+
+								System.out.println("------Last term----------------");
+								System.out.println(playerName[lastRun] + " please make your choice:");
+								playerCurrentTerm = playerTerm.playerTermRun(lastRun);
+								playerScore[lastRun] = playerScore[lastRun] + playerCurrentTerm[0];
+								System.out
+										.println(playerName[lastRun] + ", Your total score is " + playerScore[lastRun]);
+								playerChip[lastRun] = playerChip[lastRun] + playerCurrentTerm[1];
+								System.out
+										.println(playerName[lastRun] + ", You have " + playerChip[lastRun] + " chips.");
+								kittyBank = kittyBank - playerCurrentTerm[1];
+								System.out.println("Now in the bank there is " + kittyBank + " chips.");
+								if (playerChip[lastRun] <= 0) {
+									System.out.println(
+											"Sorry, player " + playerName[lastRun] + " you lose all your chips.");
+									System.out.println("You lose");
+									System.out.println("--------------------");
+								}
+							}
+						}
+						for (int finalWinner = 0; finalWinner < allPlayerNumber; finalWinner++) {
+							if (playerScore[finalWinner] >= 100) {
+								System.out.println("Congratulations!" + playerName[finalWinner] + " You win the game!");
+								numWinner = numWinner + 1;
+							}
+						}
+						int winnerGetChip = 0;
+						winnerGetChip = kittyBank / numWinner;
+						System.out.println("Winner get " + winnerGetChip + " chips in the kittybank.");
+
+						for (int r = 0; r < allPlayerNumber; r++) {
+							if (playerScore[r] >= 100) {
+								System.out.println("Winner get " + winnerGetChip + " chips in the kittybank.");
+								System.out.println("-----Winner---------");
+								playerChip[r] = playerChip[r] + winnerGetChip;
+								System.out
+										.println("Player " + playerName[r] + " ,your final score is " + playerScore[r]);
+								System.out
+										.println("Player " + playerName[r] + " ,you have " + playerChip[r] + " chips.");
+								System.out.println("---------------------");
+
+							} else {
+								System.out.println("-----not Winner---------");
+								System.out
+										.println("Player " + playerName[r] + " ,your final score is " + playerScore[r]);
+								System.out
+										.println("Player " + playerName[r] + " ,you have " + playerChip[r] + " chips.");
+								System.out.println("---------------------");
+							}
+						}
 						// break;
 						System.exit(n);
 
 					}
 				}
+				
 
 			}
 
