@@ -6,7 +6,39 @@ public class PairOfDice {
 	public PairOfDice() {
 		roll();
 	}
+	
+	////////////
+	public Die(int firstValue) // overloaded constructor: different signature
+	{
+		setLastRoll(firstValue);
+	}
 
+	public int getLastRoll() // getter or accessor method
+	{
+
+		return this.lastRoll;
+	}
+
+	// protected => visible to subclasses and package
+	protected void setLastRoll(int lastRoll) // setter or mutator method
+	{
+		this.lastRoll = lastRoll;
+	}
+	// try changing visibility of toString to protected...
+	@Override
+	public String toString() // this OVERRIDES the default Object.toString()
+	{
+		return "A Die object with roll " + this.getLastRoll();
+
+		// add the following to the end of the above line:
+		// + " " + super.toString()
+	}
+
+	public String toString(int msg) // Overloading... but NOT overriding!
+	{
+		return msg + this.toString();
+	}
+	////////////
 	public void roll() {
 
 		diceResult1 = (int) (6.0 * Math.random()) + 1;
