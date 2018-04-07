@@ -27,8 +27,7 @@ public class SkunkPlay {
 					System.out.println("\n------------------------------- New term ----------------------------------");
 					for(int num=0;num<allPlayerNumber;num++){
 						System.out.println(playerName[num] + ", current score is " + playerScore[num]);
-
-						System.out.println(playerName[num] + ", You have " + playerChip[num] + " chips.");
+						
 					}
 					System.out.println(playerName[n] + " please make your choice:");
 
