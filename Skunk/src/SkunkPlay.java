@@ -4,7 +4,7 @@ public class SkunkPlay {
 	public static void main(String[] args) {
 		PlayerSelection playerSele = new PlayerSelection();
 		PlayerTerm playerTerm = new PlayerTerm();
-		final int WINNERSCORE = 20;
+		final int WINNERSCORE = 100;
 		int allPlayerNumber = 0;
 		// Start the game, ask how many players to play this game
 		System.out.println("-----------Welcome to the Game of Skunk-----------");
