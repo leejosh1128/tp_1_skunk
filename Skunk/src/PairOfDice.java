@@ -29,15 +29,21 @@ public class PairOfDice {
 		if (diceResult1 == 1 || diceResult2 == 1) {
 			rollOrDie[0] = 0;
 			if ((diceResult1 == 1 && diceResult2 == 2) || (diceResult1 == 2 && diceResult2 == 1)) {
+
 				rollOrDie[1] = -2;
-			} else {
+				System.out.println("You got a Skunk and a Deuce.");
+			}
+			if (diceResult1 == 1 && diceResult2 == 1) {
+				// rollOrDie[0] = 0;
+				rollOrDie[1] = -4;
+				System.out.println("Whoops, you got 2 Skunks!");
+			}
+			if ((diceResult1 == 1 && diceResult2 != 2 && diceResult2 != 1)
+					|| (diceResult1 != 2 && diceResult2 == 1 && diceResult1 != 1)) {
 				rollOrDie[1] = -1;
+				System.out.println("You got a Skunk");
 			}
 
-		}
-		if (diceResult1 == 1 && diceResult2 == 1) {
-			rollOrDie[0] = 0;
-			rollOrDie[1] = -4;
 		} else {
 			rollOrDie[0] = this.getTotal();
 		}

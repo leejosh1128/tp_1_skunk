@@ -10,6 +10,7 @@ public class PlayerTerm {
 
 	int[] playerTermResult = new int[2];
 	// Scanner scan = new Scanner(System.in);
+	int[]playerLastTerm=new int[2];
 	int option = 0;
 
 	public void printSkunkRule() {
@@ -93,5 +94,29 @@ public class PlayerTerm {
 		return playerTermResult;
 
 	}
+	
+//	public int[] lastTerm(int playerNumber){
+//		playerLastTerm[0] = 0;
+//		playerLastTerm[1] = 0;
+//		System.out.println("------Last term----------------");
+//		System.out.println(playerName[lastRun] + " please make your choice:");
+//		playerLastTerm = this.playerTermRun(lastRun);
+//		playerScore[lastRun] = playerScore[lastRun] + playerCurrentTerm[0];
+//		System.out
+//				.println(playerName[lastRun] + ", Your total score is " + playerScore[lastRun]);
+//		playerChip[lastRun] = playerChip[lastRun] + playerCurrentTerm[1];
+//		System.out
+//				.println(playerName[lastRun] + ", You have " + playerChip[lastRun] + " chips.");
+//		kittyBank = kittyBank - playerCurrentTerm[1];
+//		System.out.println("Now in the bank there is " + kittyBank + " chips.");
+//		if (playerChip[lastRun] <= 0) {
+//			System.out.println(
+//					"Sorry, player " + playerName[lastRun] + " you lose all your chips.");
+//			System.out.println("You lose");
+//			System.out.println("--------------------");
+//		}
+//		
+//		return playerLastTerm;
+//	}
 
 }

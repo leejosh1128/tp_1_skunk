@@ -1,5 +1,4 @@
 public class SkunkPlay {
-
 	public static void main(String[] args) {
 		PlayerSelection playerSele = new PlayerSelection();
 		PlayerTerm playerTerm = new PlayerTerm();
@@ -38,11 +37,13 @@ public class SkunkPlay {
 
 					playerChip[n] = playerChip[n] + playerCurrentTerm[1];
 
-					System.out.println(playerName[n] + ", Your total score is " + playerScore[n]);
-
-					System.out.println(playerName[n] + ", You have " + playerChip[n] + " chips.");
 					kittyBank = kittyBank - playerCurrentTerm[1];
 					System.out.println("Now in the bank there is " + kittyBank + " chips.");
+					for(int num=0;num<allPlayerNumber;num++){
+						System.out.println(playerName[num] + ", Your total score is " + playerScore[num]);
+
+						System.out.println(playerName[num] + ", You have " + playerChip[num] + " chips.");
+					}
 					if (playerChip[n] <= 0) {
 						System.out.println("Sorry, player " + playerName[n] + " you lose all your chips.");
 						System.out.println("You lose");
@@ -102,6 +103,7 @@ public class SkunkPlay {
 								System.out.println("---------------------");
 							}
 						}
+						//
 						// break;
 						System.exit(n);
 
